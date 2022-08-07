@@ -1,21 +1,21 @@
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
   const showAlert = (message,type)=>{
     setAlert({
-      msg: message,
+      msg: message, 
       type: type
     })
   }   
@@ -34,20 +34,20 @@ function App() {
   }
   return (
     <>
-    {/* <Router> */}
+    <Router>
     <Navbar title="TextUtils" aboutText="About" mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert}/>
     <div className="container my-3">
-    {/* <Switch>
-          <Route exact path="/"> */}
+    <Switch>
+          <Route exact path="/">
           <TextForm heading="Enter the text to analyze below" mode={mode}/>
-          {/* </Route>
-          <Route exact path="/about">
-            <About />
           </Route>
-    </Switch> */}
+          <Route exact path="/about">
+            <About mode={mode}/>
+          </Route>
+    </Switch>
     </div>  
-    {/* </Router> */}
+    </Router>
     </>
   );
 }
